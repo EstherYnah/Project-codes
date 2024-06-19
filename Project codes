@@ -1,0 +1,3812 @@
+# Set parameters for lack of financial literacy
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10570
+num_simulations <- 10000
+mu_1 <- 5000 
+sigma_1 <- 200    
+
+# Generate simulations of monthly missed payments
+set.seed(123)  # For reproducibility
+monthly_missed_payments <- matrix(rnorm(num_simulations * 12, mean = mu_1, sd = sigma_1),
+                                  nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthly_missed_payments)
+
+# Define a range of threshold values (adjusted for monthly payments)
+threshold_values <- seq(60000, 61000, by = 150)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Lack of Financial Literacy",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+
+# Set parameters for lack of market research
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10570
+num_simulations <- 10000
+mu_2 <- 5000 
+sigma_2 <- 200    
+
+# Generate simulations of monthly missed payments
+set.seed(123)  # For reproducibility
+monthly_missed_payments <- matrix(rnorm(num_simulations * 12, mean =mu_2, sd = sigma_2),
+                                  nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthly_missed_payments)
+
+# Define a range of threshold values (adjusted for monthly payments)
+threshold_values <- seq(61000, 62000, by = 150)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Lack of Market Research",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+# Set parameters for poor business operations management
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10570
+num_simulations <- 10000
+mu_3 <- 5000 
+sigma_3<- 200    
+
+# Generate simulations of monthly missed payments
+set.seed(123)  # For reproducibility
+monthly_missed_payments <- matrix(rnorm(num_simulations * 12, mean = mu_3, sd = sigma_3),
+                                  nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthly_missed_payments)
+
+# Define a range of threshold values (adjusted for monthly payments)
+threshold_values <- seq(59000, 60000, by = 150)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Poor Business Operations Management",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Set parameters for economic downturns
+loan_amount <- 100000
+interest_rate <- 0.02
+monthy_repayment <- 10568.68126
+num_simulations <- 10000
+lambda_1 <-6500
+# No need for standard deviation with Poisson distribution
+
+# Generate simulations of monthly missed payments using Poisson distribution
+set.seed(123)  # For reproducibility
+monthy_missed_payments <- matrix(rpois(num_simulations * 12,  lambda_1 ), 
+                                 nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthy_missed_payments)
+min(total_missed_payments)
+# Define a range of threshold values (adjusted for weekly payments)
+threshold_values <- seq(77200, 77400, by = 40)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Step 5: Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Economic Downturns",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+
+# Set parameters for political instability
+loan_amount <- 100000
+interest_rate <- 0.02
+monthy_repayment <- 10568.68126
+num_simulations <- 10000
+lambda_3 <-6500
+# No need for standard deviation with Poisson distribution
+
+# Generate simulations of monthly missed payments using Poisson distribution
+set.seed(123)  # For reproducibility
+monthy_missed_payments <- matrix(rpois(num_simulations * 12,  lambda_3), 
+                                 nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthy_missed_payments)
+min(total_missed_payments)
+# Define a range of threshold values (adjusted for weekly payments)
+threshold_values <- seq(77400, 77600, by = 40)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Step 5: Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Political Instability",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+# Set parameters for natural disasters
+loan_amount <- 100000
+interest_rate <- 0.02
+monthy_repayment <- 10568.68126
+num_simulations <- 10000
+lambda_2<-6500
+# No need for standard deviation with Poisson distribution
+
+# Generate simulations of monthly missed payments using Poisson distribution
+set.seed(123)  # For reproducibility
+monthy_missed_payments <- matrix(rpois(num_simulations * 12,  lambda_2), 
+                                 nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthy_missed_payments)
+min(total_missed_payments)
+# Define a range of threshold values (adjusted for weekly payments)
+threshold_values <- seq(77600, 77800, by = 40)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Step 5: Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Natural Disasters",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+
+# Set parameters for loan deviation
+loan_amount <- 100000
+interest_rate <- 0.02
+monthy_repayment <- 10568.68126
+num_simulations <- 10000
+lambda_4<-5500
+# No need for standard deviation with Poisson distribution
+
+# Generate simulations of monthly missed payments using Poisson distribution
+set.seed(123)  # For reproducibility
+monthy_missed_payments <- matrix(rpois(num_simulations * 12,  lambda_4), 
+                                 nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthy_missed_payments)
+min(total_missed_payments)
+# Define a range of threshold values (adjusted for weekly payments)
+threshold_values <- seq(65600, 65900, by = 50)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Step 5: Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Loan Deviation",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+# Set parameters for high interest rates
+loan_amount <- 100000
+interest_rate <- 0.02
+monthy_repayment <- 10568.68126
+num_simulations <- 10000
+lambda_4<-5500
+# No need for standard deviation with Poisson distribution
+
+# Generate simulations of monthly missed payments using Poisson distribution
+set.seed(123)  # For reproducibility
+monthy_missed_payments <- matrix(rpois(num_simulations * 12,  lambda_4), 
+                                 nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthy_missed_payments)
+min(total_missed_payments)
+# Define a range of threshold values (adjusted for weekly payments)
+threshold_values <- seq(65900, 66200, by = 50)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Step 5: Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to High Interest Rates",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+
+# Set parameters for loan delay
+loan_amount <- 100000
+interest_rate <- 0.02
+monthy_repayment <- 10568.68126
+num_simulations <- 10000
+theta<-1/4500
+# No need for standard deviation with Poisson distribution
+
+# Generate simulations of monthly missed payments using Poisson distribution
+set.seed(123)  # For reproducibility
+monthy_missed_payments <- matrix(rexp(num_simulations * 12,  theta), 
+                                 nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve months
+total_missed_payments <- rowSums(monthy_missed_payments)
+min(total_missed_payments)
+# Define a range of threshold values (adjusted for weekly payments)
+threshold_values <- seq(66200, 66500, by = 50)
+
+# Initialize a vector to store probabilities of default for each threshold
+probabilities_of_default <- numeric(length(threshold_values))
+
+# Calculate the probability of default for each threshold
+for (i in seq_along(threshold_values)) {
+  threshold <- threshold_values[i]
+  defaults <- total_missed_payments > threshold
+  probabilities_of_default[i] <- mean(defaults)
+}
+
+# Calculate the mean probability of default over the range of thresholds
+mean_probability_of_default <- mean(probabilities_of_default)
+mean_probability_of_default
+
+# Step 5: Plot the results using ggplot2
+library(ggplot2)
+
+# Create a data frame with threshold values and probabilities of default
+results <- data.frame(Threshold_Value = threshold_values, Probability_of_Default = probabilities_of_default)
+
+# Plot using ggplot2
+ggplot(results, aes(x = Threshold_Value, y = Probability_of_Default)) +
+  geom_point(color = "black") +  # Add points with black color
+  geom_line(color = "black") +   # Connect points with lines in black
+  labs(title = "Probability of Default due to Loan Delay",
+       x = "Threshold Value",
+       y = "Probability of Default") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 14),  # Adjust axis text size
+        axis.title = element_text(size = 16))  # Adjust axis title size
+
+
+
+
+
+
+# Set parameters for poor business operations management
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_3 <- 5000 
+sigma_3 <- 200
+
+# Set parameters for economic downturns
+lambda_1 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for poor business operations management
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_3 <- 5000 
+sigma_3 <- 200
+
+# Set parameters for political instability
+lambda_3 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+# Set parameters for poor business operations management
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_3 <- 5000 
+sigma_3 <- 200
+
+# Set parameters for natural disasters
+lambda_2 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+
+# Set parameters for lack of financial literacy
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_1 <- 5000 
+sigma_1 <- 200
+
+# Set parameters for economic downturns
+lambda_1 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+
+# Set parameters for lack of financial literacy
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_1 <- 5000 
+sigma_1 <- 200
+
+# Set parameters for political instability
+lambda_3 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+
+
+
+# Set parameters for lack of financial literacy
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_1 <- 5000 
+sigma_1 <- 200
+
+# Set parameters for natural disasters
+lambda_2 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for lack of market research
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_2 <- 5000 
+sigma_2 <- 200
+
+# Set parameters for economic downturns
+lambda_1 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for lack of market research
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_2 <- 5000 
+sigma_2 <- 200
+
+# Set parameters for political instability
+lambda_3 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for lack of market research
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_2 <- 5000 
+sigma_2 <- 200
+
+# Set parameters for natural disasters
+lambda_2 <- 6500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for poor business operations management
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_3 <- 5000 
+sigma_3 <- 200
+
+# Set parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_4),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for poor business operations management
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_3 <- 5000 
+sigma_3 <- 200
+
+# Set parameters for high interest rates
+lambda_5<- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_5),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for poor business operations management
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_3 <- 5000 
+sigma_3 <- 200
+
+# Set parameters for loan delay
+theta<- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rexp(num_simulations * 12, theta),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+
+# Set parameters for lack of financial literacy
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_1 <- 5000 
+sigma_1 <- 200
+
+# Set parameters for loan deviation
+lambda_4<- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_4),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for lack of financial literacy
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_1 <- 5000 
+sigma_1 <- 200
+
+# Set parameters for loan high interest rates
+lambda_5<- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_5),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for lack of financial literacy
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_1 <- 5000 
+sigma_1 <- 200
+
+# Set parameters for loan delay
+theta<- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rexp(num_simulations * 12, theta),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for lack of market research
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_2 <- 5000 
+sigma_2 <- 200
+
+# Set parameters for loan deviation
+lambda_4<- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_4),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for lack of market research
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_2 <- 5000 
+sigma_2 <- 200
+
+# Set parameters for high interest rates
+lambda_5<- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda_5),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for lack of market research
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+mu_2 <- 5000 
+sigma_2 <- 200
+
+# Set parameters for loan delay
+theta<- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario (Normal distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rexp(num_simulations * 12, theta),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for economic downturns
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_1 <- 6500 
+# Set parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Poisson distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12,  lambda_4),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for economic downturns
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_1 <- 6500 
+
+
+# Set parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Poisson distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12,  lambda_5),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for economic downturns
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_1 <- 6500 
+# Set parameters for loan delay
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario (Poisson distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rexp(num_simulations * 12,  theta),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for political instability
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_3 <- 6500 
+
+
+# Set parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Poisson distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12,  lambda_4),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for political instability
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_3 <- 6500 
+# Set parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Poisson distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12,  lambda_5),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for political instability
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_3 <- 6500 
+# Set parameters for loan delay
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario
+monthly_missed_payments2 <- matrix(rexp(num_simulations * 12,  theta),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for natural disasters
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_2 <- 6500 
+
+
+# Set parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario (Poisson distribution)
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12,  lambda_4),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for natural disasters
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_2 <- 6500 
+
+
+# Set parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario (Poisson distribution)
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12,  lambda_5),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for natural disasters
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+lambda_2 <- 6500 
+
+
+# Set parameters for high interest rates
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rpois(num_simulations * 12,  lambda_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rexp(num_simulations * 12,  theta),
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for both scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 2
+
+# Initialize a matrix to store probabilities of default for each combination of thresholds
+probabilities_of_default <- matrix(NA, nrow = length(threshold_range1), ncol = length(threshold_range2))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    threshold1 <- threshold_range1[i]
+    threshold2 <- threshold_range2[j]
+    
+    defaults1 <- total_missed_payments1 > threshold1
+    defaults2 <- total_missed_payments2 > threshold2
+    
+    probabilities_of_default[i, j] <- mean(defaults1 & defaults2)
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for loan  deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for loan delay
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for high interest rates
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for poor business operations manement
+mu_3<- 5000 
+sigma_3 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for loan delay
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_3, 
+                                         sd = sigma_3),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(59000, 60000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for high interest rates
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for loan delay
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of financial literacy
+mu_1<- 5000 
+sigma_1 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for high interest rates
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_1, 
+                                         sd = sigma_1),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(60000, 61000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for economic downturns
+lambda_1 <- 6500
+
+# Parameters for loan delay
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_1), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77200, 77400, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for political instability
+lambda_3 <- 6500
+
+# Parameters for laon delay
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_3), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77400, 77600, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for loan deviation
+lambda_4 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_4), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65600, 65900, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for high interest rates
+lambda_5 <- 5500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rpois(num_simulations * 12, lambda_5), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(65900, 66200, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
+
+
+
+
+
+
+
+# Set parameters for common settings
+loan_amount <- 100000
+interest_rate <- 0.02
+monthly_repayment <- 10568.68162
+num_simulations <- 10000
+
+# Parameters for lack of market research
+mu_2<- 5000 
+sigma_2 <- 200
+
+# Parameters for natural disasters
+lambda_2 <- 6500
+
+# Parameters for high interest rates
+theta <- 1/4500
+
+# Generate simulations of weekly missed payments for the first scenario 
+set.seed(123)  # For reproducibility
+monthly_missed_payments1 <- matrix(rnorm(num_simulations * 12, mean = mu_2, 
+                                         sd = sigma_2),
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the second scenario 
+monthly_missed_payments2 <- matrix(rpois(num_simulations * 12, lambda = lambda_2), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Generate simulations of weekly missed payments for the third scenario 
+monthly_missed_payments3 <- matrix(rexp(num_simulations * 12, theta), 
+                                   nrow = num_simulations, ncol = 12)
+
+# Calculate total missed payments for each simulation over twelve weeks for all scenarios
+total_missed_payments1 <- rowSums(monthly_missed_payments1)
+total_missed_payments2 <- rowSums(monthly_missed_payments2)
+total_missed_payments3 <- rowSums(monthly_missed_payments3)
+
+# Define threshold ranges for each scenario
+threshold_range1 <- seq(61000, 62000, by = 150)  # Adjust as per your specific threshold range for scenario 1
+threshold_range2 <- seq(77600, 77800, by = 40)  # Adjust as per your specific threshold range for scenario 2
+threshold_range3 <- seq(66200, 66500, by = 50)   # Adjust as per your specific threshold range for scenario 3
+
+# Initialize a 3D array to store probabilities of default for each combination of thresholds
+probabilities_of_default <- array(NA, dim = c(length(threshold_range1), length(threshold_range2), 
+                                              length(threshold_range3)))
+
+# Calculate the probability of default for each combination of thresholds
+for (i in seq_along(threshold_range1)) {
+  for (j in seq_along(threshold_range2)) {
+    for (k in seq_along(threshold_range3)) {
+      threshold1 <- threshold_range1[i]
+      threshold2 <- threshold_range2[j]
+      threshold3 <- threshold_range3[k]
+      
+      defaults1 <- total_missed_payments1 > threshold1
+      defaults2 <- total_missed_payments2 > threshold2
+      defaults3 <- total_missed_payments3 > threshold3
+      
+      probabilities_of_default[i, j, k] <- mean(defaults1 & defaults2 & defaults3)
+    }
+  }
+}
+
+# Calculate the mean probability of intersection
+mean_probability_of_intersection <- mean(probabilities_of_default, na.rm = TRUE)
+
+# Print the mean probability of intersection
+mean_probability_of_intersection
